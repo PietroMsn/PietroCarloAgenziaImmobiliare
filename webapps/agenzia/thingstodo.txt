@@ -1,0 +1,13 @@
+
+
+inserire offerta
+registrazione sito --- gestire sessioni --- timeout //con pietro
+foto nel database // con pietro
+page schema //con pietro
+
+
+
+
+nomi nei makebean sbagliati //alla fine
+eliminare cose inutili per esempio eccessivi cast //alla fine
+
