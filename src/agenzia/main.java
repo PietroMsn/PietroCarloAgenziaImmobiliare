@@ -74,10 +74,6 @@ public class main extends HttpServlet {
 
             if (ps.startsWith("offerte_" )) { 
            
-                //Vector vettore = dbms.getTentVenditaTipo("villa singola");
-
-                //Vector vettore = dbms.getQUALCOSA(ps.substring(8));
-                
                 Vector vettore= new Vector();
                 request.setAttribute("offerteImm", vettore);
                  
@@ -102,6 +98,7 @@ public class main extends HttpServlet {
      *                richiesta effettuata.
      * @param response Oggetto HttpServletResponse per l'invio delle risposte.
      */
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String ps = "";
@@ -116,28 +113,39 @@ public class main extends HttpServlet {
 	
 		try {
 			// Oggetto per l'interazione con il Database
-			DBMS dbms = new DBMS();
+			DBMS dbms = new DBMS();request.getAttribute("numOfferte");
     
         if (ps.equals("login")) { 
                 
-                //boolean correct = false;
+                String codiceImm = "";
 				String username = "";	
                 String password = "";
+                String esito = "";
+                
 
-				// Recupero idTent
+                // Recupero codice immobile
+                if (request.getParameter("codImm") != null) {
+    				codiceImm = request.getParameter("codImm");
+                }
+
+				// Recupero username
                 if (request.getParameter("user") != null) {
     				username = request.getParameter("user");
                 }
 
-                // Recupero username
+                // Recupero password
                 if (request.getParameter("pass") != null) {
     				password = request.getParameter("pass");
                 }
-                
-                String esito = dbms.getAccess(username, password);
 
-                if(esito.equals(username))
+                esito = dbms.getAccess(username, password);
+
+                if(esito.equals(username)){
+                       
+                       request.setAttribute("offerteImm", dbms.getInfoOfferte(username, codiceImm));
                     	rd = request.getRequestDispatcher("./offertePage.jsp");
+                }
+                
 				/*
 				// Controllo che sia il cliente giusto recuperando
 				// i tentativi di vendita attivi per quel cliente.
@@ -154,14 +162,14 @@ public class main extends HttpServlet {
                 		//Preparo il Dispatcher
 						rd = request.getRequestDispatcher("./OffertePage.jsp");		
 					} 
-				}
-                if (!correct) 
-                 rd = request.getRequestDispatcher("./error.jsp");
-				// LANCIARE UNA PAGINA D'ERRORE*/
-
+				}*/
+                else
+                    rd = request.getRequestDispatcher("./error.jsp");
+				// LANCIARE UNA PAGINA D'ERRORE
+            
 		} else if (ps.equals("inserimento")) {
 
-				int idTent = 0;	
+				/*int idTent = 0;	
                 String nome = "";
                 String cognome = "";
 				String telefono = "";
@@ -192,7 +200,7 @@ public class main extends HttpServlet {
 				//String found = dbms.eRegistrato(nome, cognome, telefono);
 
 				// Se l'acquirente potenziale non è memorizzato nel sistema
-				// lo inserisco e ottengo il suo nuovo identificativo.
+				// lo inserisco e ottengo il suo nuovo identificativo.*/
 		
 				/*if (found.equals("")) 
 					found = dbms.insertNuovoAcquirentePotenziale(nome, cognome, telefono);
@@ -200,7 +208,7 @@ public class main extends HttpServlet {
 				float prezzoMinimo = dbms.getPrezzoMinimo(idTent);
 
                 */
-					dbms.insertOfferta( nome, cognome, idTent, offerta, telefono);
+					/*dbms.insertOfferta( nome, cognome, idTent, offerta, telefono);
 				
                 
 
@@ -212,21 +220,30 @@ public class main extends HttpServlet {
 				
 				rd = request.getRequestDispatcher("./index.jsp");
 
-				// GESTIRE IL CASO IN CUI L'OFFERTA NON È VALIDA
+				// GESTIRE IL CASO IN CUI L'OFFERTA NON È VALID*/
 		
        		 } 
 
-            throw new Exception();
+            //throw new Exception();
         } catch(Exception e) {  
 			// Gestisco eventuali eccezioni visualizzando lo stack delle chiamate
 			e.printStackTrace();
 		} // fine catch
         
-        if (!ps.equals("inserimento") && !ps.equals("offerte") && !ps.equals("") )
-          rd = request.getRequestDispatcher("./error.jsp");
+        /*if (!ps.equals("inserimento") && !ps.equals("offerte") && !ps.equals("") )
+          rd = request.getRequestDispatcher("./error.jsp");*/
+
+        try { 
 
         // Passo il controllo alla JSP
         rd.forward(request,response);
-    
+
+        } catch(NullPointerException e) {
+
+            //se il login e' errato invio una segnalazione d'errore
+            rd = request.getRequestDispatcher("./error.jsp");  
+            rd.forward(request,response);
+		    
+		}
     } // fine doPost
 }

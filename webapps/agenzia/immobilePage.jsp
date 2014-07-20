@@ -58,19 +58,12 @@
 				<li> Superficie totale: <%= bean.getSupTotImm() %></li> 
 				<li> Numero vani: <%= bean.getNumVani() %></li> 
                 <li> Descrizione: <%= bean.getDesc() %></li>
+                           <li> Prezzo minimo: <%= bean.getPrezzoMinimo() %> </li>
                 
                
                 <li> Numero offerte di acquisto pervenute: <%= numOff %> </li>
 
                 FOTO!!! <BR>
-				INSERISCI L'OFFERTA!! <BR>
-
-
-                
-
-            <u><a href="<%= link %>"> 
-				 loggati e ottieni le offerte pervenute per l'acquisto di questo immobile</a></u>
-            </ul>		
 
 			</h3>
 		</div> <!-- container end -->
@@ -87,10 +80,11 @@
 		        <h1>Log-in</h1><br>
                 
 		      <form name="login" action="./main" method="post" > 
-
+                <input type = "hidden" name = "codImm" value = "<%= bean.getCodiceImm() %>" >
                 <input type = "hidden" name = "ps" value = "login" >
 		        <input type="text" name="user" value="Username">
-		        <input type="password" name="pass" value="Password">
+                <center><h4> password: </h4></center>
+		        <input type="password" name="pass">
 		        <input type="submit" name="Entra" value="login">
 		      </form>
 	    </div>	

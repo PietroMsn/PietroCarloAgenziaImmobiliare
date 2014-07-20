@@ -12,12 +12,13 @@ public class agenziaImmoBean {
 	private String codiceImm;
 	private String indirizzoImm;
 	private String cittaImm;
-	private String giornoContatto;
+	private String giornoContattoPA;
 	private String nomePA;
 	private String cognomePA;
 	private String telefonoPA;
 	private String login;
 	private String descrizione;
+    private float prezzominimo;
 	
 
 	//Definizione del costruttore del Bean
@@ -29,13 +30,14 @@ public class agenziaImmoBean {
 			indirizzoImm = null;
 			cittaImm = null;
 			supTotImm = 0;
-			giornoContatto = null;
+			giornoContattoPA = null;
 			nomePA = null;
 			cognomePA = null;
 			telefonoPA = null;
 			prezzoOfferto = 0;
 			login = null;
 			numVani = 0;
+            prezzominimo=0;
 		
 	    }
 
@@ -64,16 +66,16 @@ public class agenziaImmoBean {
 		cittaImm = s;
 	}
 
-	public void setGiornoContatto(String s){
-		giornoContatto = s;
+	public void setGiornoContattoPA(String s){
+		giornoContattoPA = s;
 	}
 
 	public void setNomePA(String s){
-		codiceImm = s;
+		nomePA = s;
 	}
 
 	public void setCognomePA(String s){
-		codiceImm = s;
+	    cognomePA = s;
 	}
 
 	public void setTelefonoPA(String s){
@@ -95,7 +97,10 @@ public class agenziaImmoBean {
 	public void setDesc(String s){
 		descrizione = s;
 	}
-
+    
+    public void setPrezzoMinimo(float f){
+		prezzominimo = f;
+	}
 	//metodi get
 	public int getNumImmTipo() {
 		return numImmTipo;
@@ -121,16 +126,16 @@ public class agenziaImmoBean {
 		return cittaImm;
 	}
 
-	public String getGiornoContatto(){
-		return giornoContatto;
+	public String getGiornoContattoPA(){
+		return giornoContattoPA;
 	}
 
 	public String getNomePA(){
-		return codiceImm;
+		return nomePA;
 	}
 
-	public String getcognomePA(){
-		return codiceImm;
+	public String getCognomePA(){
+		return cognomePA;
 	}
 
 	public String getTelefonoPA(){
@@ -151,6 +156,10 @@ public class agenziaImmoBean {
 	
 	public String getDesc(){
 		return descrizione;
+	}
+
+    public float getPrezzoMinimo(){
+		return prezzominimo;
 	}
 
 }

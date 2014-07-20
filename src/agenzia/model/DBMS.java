@@ -1,3 +1,5 @@
+
+
 import java.sql.*;
 import java.util.*;
 import model.*;
@@ -14,7 +16,7 @@ public class DBMS {
      * <protocollo>://<host del server>/<nome base di dati>.
      */
    // private String url = "jdbc:postgresql://dbserver.sci.univr.it/did2014";
-    private String url = "jdbc:postgresql://localhost/dblab06";
+    private String url = "jdbc:postgresql://157.27.10.31/dblab06";
     
 	/** Driver da utilizzare per la connessione e l'esecuzione delle query. */
     private String driver = "org.postgresql.Driver";
@@ -29,18 +31,19 @@ public class DBMS {
     private String tentVendita = "select immobile.codiceIm, immobile.indirizzo, immobile.citta, immobile.superficietotale from immobile, tentativovendita, invendita where tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceIm and immobile.tipo = ? and tentativovendita.codiceeffettivoacquirente not like 'null';";
 
     //query usata per ottenere offerte per un determinato immobile
-   	private String infoImm = "select codiceIm, indirizzo, citta, superficietotale, numerovani, descrizione from immobile where codiceIm = ?;";
+   	private String infoImm = "select i.codiceIm, i.indirizzo, i.citta, i.superficietotale, i.numerovani, i.descrizione, t.prezzominimo from immobile i, tentativovendita t, invendita iv where iv.codimmobile=i.codiceIm and t.id=iv.idtentativovendita and codiceIm = ?;";
 
     //query usata per ottenere il numero di offerte attive nel database al momento
   	private String numOff = "select count(offerta.id) as numOffTipo from offerta, tentativovendita, invendita, immobile where offerta.idtentativovendita = tentativovendita.id and tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceim and immobile.codiceim = ?;";
 
 
-	private String infoOfferte = " select offerta.giornocontattoPA, offerta.nomePA, offerta.cognomePA, offerta.telefonoPA, offerta.prezzoofferto from offerta, tentativovendita, cliente, immobile, invendita where offerta.idtentativovendita = tentativovendita.id and tentativovendita.codcliente = cliente.codfis and tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceim and cliente.login = ? and immobile.codiceIm = ?;";
+	private String infoOfferte = "select offerta.giornocontattoPA, offerta.nomePA, offerta.cognomePA, offerta.telefonoPA, offerta.prezzoofferto from offerta, tentativovendita, cliente, immobile, invendita where offerta.idtentativovendita = tentativovendita.id and tentativovendita.codcliente = cliente.codfis and tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceim and cliente.login = ? and immobile.codiceIm = ?;";
 
 
 
 
-	private String login = " select login from cliente where login = ? and passwd = ?;";
+
+	private String login = "select login from cliente where login = ? and passwd = ?;";
 
 
     private String insertOfferte = "INSERT INTO Offerta(Id, PrezzoOfferto, IdTentativoVendita, NomePA, CognomePA, GiornoContattoPA, TelefonoPA) VALUES ('23', ?, ?, ?, ?, '2017-05-10', ?);";
@@ -83,6 +86,7 @@ public class DBMS {
 		bean.setSupTotImm(rs.getFloat("superficietotale"));
 		bean.setNumVani(rs.getInt("numerovani"));
 		bean.setDesc(rs.getString("descrizione"));
+        bean.setPrezzoMinimo(rs.getFloat("prezzominimo"));
 		return bean;
     	}
 	
@@ -94,7 +98,7 @@ public class DBMS {
 
 	private agenziaImmoBean makeInfoOfferteBean(ResultSet rs) throws SQLException {
 		agenziaImmoBean bean = new agenziaImmoBean();
-		bean.setGiornoContatto(rs.getString("giornoContatto"));
+		bean.setGiornoContattoPA(rs.getString("giornocontattoPA"));
 		bean.setNomePA(rs.getString("nomePA"));
 		bean.setCognomePA(rs.getString("cognomePA"));
 		bean.setTelefonoPA(rs.getString("telefonoPA"));
@@ -201,7 +205,7 @@ public class DBMS {
 			rs=pstmt.executeQuery(); 		
 			
 			// Memorizzo il risultato dell'interrogazione nel Bean
-			rs.next();
+			if(rs.next());
 			result.add(makeLoginBean(rs));
 		
 		} catch(SQLException sqle) {                /* Catturo le eventuali eccezioni! */
@@ -353,6 +357,8 @@ public class DBMS {
 				sqle1.printStackTrace();
 			}
 		}
+
+     
 	}
 
     

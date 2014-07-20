@@ -1,13 +1,13 @@
 
 
 inserire offerta
-registrazione sito --- gestire sessioni --- timeout //con pietro
-foto nel database // con pietro
-page schema //con pietro
+controlli input
 
+gestione funzione inserimento casuale nel database
+foto nel database ( opzionale )
+page schema (gia fatto)
+relazione
 
+eliminare cose inutili per esempio eccessivi cast e commentare //alla fine
 
-
-nomi nei makebean sbagliati //alla fine
-eliminare cose inutili per esempio eccessivi cast //alla fine
 

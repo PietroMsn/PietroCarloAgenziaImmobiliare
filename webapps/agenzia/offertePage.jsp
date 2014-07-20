@@ -44,23 +44,26 @@
      <% 
      
         Vector offerte = (Vector)request.getAttribute("offerteImm"); 
-        /*agenziaImmoBean bean = (agenziaImmoBean) offerte.get(0);*/
-         
-  
+        
     %>
-
-
-
-        <!--
-		   <h3>	
+            
+   <h3>	
 		<div class="titolo"><h2>Pagina relativa alle offerte sull'immobile.</h2></div>
-			<ul>PARTE DINAMICA <br> elenco offerte
-			   <li>offerta 1 da toni il giorno x 10 euro</li>
-			   <li>offerta 2 da pino il giorno y 200 euro</li>
-			   <li>offerta 3 da beppe il giorno i 200 euro</li>
-			   <li>offerta 4 da joe il giorno t 3000 euro</li>
+			<ul> Elenco offerte
+                <% for (int i = 0; i < offerte.size(); i++) {
+                    agenziaImmoBean bean = (agenziaImmoBean) offerte.get(i);
+                 %>
+			       <li> Giorno offerta: <%= bean.getGiornoContattoPA()%> </li>
+                   <li> Cognome acquirente: <%= bean.getCognomePA() %> </li> 
+                   <li> Nome acquirente: <%= bean.getNomePA() %> </li>
+                   <li> Numero di telefono acquirente: <%= bean.getTelefonoPA() %> </li>
+                   <li> Prezzo offerto: <%= bean.getPrezzoOfferto() %> </li>
+        
+              <% } %>
+			  
 			</ul>
-		   </h3>-->
+		   </h3>
+
     
 		</div> <!-- container end -->
 	</div>	<!-- content-end-->

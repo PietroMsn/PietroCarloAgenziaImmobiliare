@@ -1,0 +1,13 @@
+Installare:
+sudo apt-get install postgresql --fix-missing
+
+Configurazione:
+sudo su - postgres;
+createuser <vostro nome utente di login>; --userlab12
+createdb dblab12;
+
+Per accedere:
+sudo su - postgres;
+psql dblab12
+
+\i '/home/trattore/Scrivania/agenzia.sql' 

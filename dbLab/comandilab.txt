@@ -1,0 +1,9 @@
+psql -h 157.27.10.31 -d dblab06 userlab06
+
+password "seiHh";
+
+
+compilare java: dentro src/agenzia   javac -d ../../webapps/agenzia/WEB-INF/classes main.java ./did/*.java
+
+
+http://localhost:8080/agenzia/main

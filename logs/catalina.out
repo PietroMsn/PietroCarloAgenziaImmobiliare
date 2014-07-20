@@ -1394,3 +1394,19 @@ java.lang.Exception
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
 	at java.lang.Thread.run(Thread.java:744)
+lug 19, 2014 4:10:55 PM org.apache.coyote.AbstractProtocol pause
+Informazioni: Pausing ProtocolHandler ["http-bio-8080"]
+lug 19, 2014 4:10:55 PM org.apache.coyote.AbstractProtocol pause
+Informazioni: Pausing ProtocolHandler ["ajp-bio-8009"]
+lug 19, 2014 4:10:55 PM org.apache.catalina.core.StandardService stopInternal
+Informazioni: Stopping service Catalina
+lug 19, 2014 4:10:55 PM org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+Grave: The web application [/agenzia] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+lug 19, 2014 4:10:55 PM org.apache.coyote.AbstractProtocol stop
+Informazioni: Stopping ProtocolHandler ["http-bio-8080"]
+lug 19, 2014 4:10:55 PM org.apache.coyote.AbstractProtocol stop
+Informazioni: Stopping ProtocolHandler ["ajp-bio-8009"]
+lug 19, 2014 4:10:55 PM org.apache.coyote.AbstractProtocol destroy
+Informazioni: Destroying ProtocolHandler ["http-bio-8080"]
+lug 19, 2014 4:10:55 PM org.apache.coyote.AbstractProtocol destroy
+Informazioni: Destroying ProtocolHandler ["ajp-bio-8009"]
