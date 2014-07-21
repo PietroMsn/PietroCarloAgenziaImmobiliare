@@ -17,8 +17,44 @@
 </head>
 
 <body>
+    
+    <% 
+        Vector infoImmobile = (Vector)request.getAttribute("infoImmobile"); 
+        agenziaImmoBean bean = (agenziaImmoBean) infoImmobile.get(0);
+        String link = "./main?ps=offerte_"; link+= bean.getCodiceImm(); 
+        int numOff= (Integer)request.getAttribute("numOfferte");
+    %>
 
-	
+    <script type="text/javascript"> 
+     function controlloLogin() { 
+      var nameuser = document.forms["login"]["user"].value; 
+        if ( nameuser == "Username") { 
+            alert("Inserire nome utente e password!"); 
+            return false; 
+        } 
+    }
+    </script>
+
+     <script type="text/javascript"> 
+    function controlloOfferta() { 
+        var offerta = document.forms["faiOfferta"]["CifraOfferta"].value; 
+        var NomeUser = document.forms["faiOfferta"]["Nome"].value; //Inserisci nome
+        var CognomeUser = document.forms["faiOfferta"]["Cognome"].value; //Inserisci cognome
+        var TelefonoUser = document.forms["faiOfferta"]["Telefono"].value; //Inserisci telefono
+        var CifraOfferta = document.forms["faiOfferta"]["Telefono"].value; //Inserisci cifra offerta
+        
+
+        if (offerta < <%= bean.getPrezzoMinimo() %>) { 
+            alert("Hai inserito un'offerta troppo bassa!"); 
+            return false; 
+        } 
+        if( NomeUser == "Inserisci nome" || CognomeUser == "Inserisci cognome" || TelefonoUser == "Inserisci telefono" || CifraOfferta == "Insersci cifra offerta"){ 
+            alert("Assicurati di aver completato tutti i campi dell'offerta!"); 
+            return false; 
+        } 
+    }
+    </script>
+
    	<div id="puntina1"> <img src= "images/tack.png" width="100" height="100"></div>
 	
 	<div class="header">
@@ -41,12 +77,7 @@
 		<div class="container">
 
 
-     <% 
-        Vector infoImmobile = (Vector)request.getAttribute("infoImmobile"); 
-        agenziaImmoBean bean = (agenziaImmoBean) infoImmobile.get(0);
-        String link = "./main?ps=offerte_"; link+= bean.getCodiceImm(); 
-        int numOff= (Integer)request.getAttribute("numOfferte");
-      %>
+  
 
 		<div class="titolo"> <h2>Pagina relativa alle informazioni dell'immobile.</h2></div>
 			<h3> <ul>
@@ -77,7 +108,7 @@
 
 		        <h1>Log-in</h1><br>
                 
-		      <form name="login" action="./main" method="post" > 
+		      <form name="login" action="./main" metCifraOffertahod="post" onsubmit="controlloLogin()"> 
 		        <input type = "hidden" name = "codImm" value = "<%= bean.getCodiceImm() %>" >
 		        <input type = "hidden" name = "ps" value = "login" >
 		        <input type="text" name="user" value="Username">
@@ -87,25 +118,12 @@
 		      </form>
 	    </div>	
             </div> <!--fine col1-->
-    
-
-
- <!--*****	     <div class="login-card">
-		        <h1>Benvenuto Taccarlo!</h1><br>
-		     
-
-		      <div class="login-help" align="center" >
-		        <a href="#">Vai alle offerte</a> ------- <a href="#">Change user</a>
-		      </div>
-	    </div>	
-
- FORM PER L'OFFERTA *******-->
 
            <div id="col2">
 	      <div class="login-card">
 		        <h1>Inserisci Offerta</h1><br>
 
-		      <form name="faiOfferta" action="./main" method="post">
+		      <form name="faiOfferta" action="./main" method="post" onsubmit="controlloOfferta()">
 
                 <input type = "hidden" name = "idTent" value = "100" >
                 <input type = "hidden" name = "ps" value = "inserimento" >

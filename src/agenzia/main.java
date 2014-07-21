@@ -81,8 +81,17 @@ public class main extends HttpServlet {
 				rd = request.getRequestDispatcher("./offertePage.jsp");	
 			}
 		   
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+              try {
                 //Passo il controllo alla JSP
                 rd.forward(request,response);
+                    } catch(NullPointerException e) {
+
+            //se il login e' errato invio una segnalazione d'errore
+            rd = request.getRequestDispatcher("./error.jsp");  
+            rd.forward(request,response);
+		    
+		}
 
 		} catch(Exception e) {  //Gestisco eventuali eccezioni visualizzando lo stack delle chiamate
 			e.printStackTrace();
@@ -163,7 +172,7 @@ public class main extends HttpServlet {
 						rd = request.getRequestDispatcher("./OffertePage.jsp");		
 					} 
 				}*/
-                //else
+               // else
                   //  rd = request.getRequestDispatcher("./error.jsp");
 				// LANCIARE UNA PAGINA D'ERRORE
             
