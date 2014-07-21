@@ -18,7 +18,7 @@ public class agenziaImmoBean {
 	private String telefonoPA;
 	private String login;
 	private String descrizione;
-	private int idTent;
+	private int diTent;
     private float prezzominimo;
 	
 

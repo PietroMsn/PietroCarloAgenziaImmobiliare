@@ -31,7 +31,7 @@ public class DBMS {
     	private String tentVendita = "select immobile.codiceIm, immobile.indirizzo, immobile.citta, immobile.superficietotale from immobile, tentativovendita, invendita where tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceIm and immobile.tipo = ? and tentativovendita.codiceeffettivoacquirente not like 'null';";
 
     //query usata per ottenere offerte per un determinato immobile
-   	private String infoImm = "select i.codiceIm, i.indirizzo, i.citta, i.superficietotale, i.numerovani, i.descrizione, t.prezzominimo from immobile i, tentativovendita t, invendita iv where iv.codimmobile=i.codiceIm and t.id=iv.idtentativovendita and codiceIm = ?;";
+   	private String infoImm = "select i.codiceIm, i.indirizzo, i.citta, i.superficietotale, i.numerovani, i.descrizione, t.prezzominimo, t.id from immobile i, tentativovendita t, invendita iv where iv.codimmobile=i.codiceIm and t.id=iv.idtentativovendita and codiceIm = ?;";
 
     //query usata per ottenere il numero di offerte attive nel database al momento
   	private String numOff = "select count(offerta.id) as numOffTipo from offerta, tentativovendita, invendita, immobile where offerta.idtentativovendita = tentativovendita.id and tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceim and immobile.codiceim = ?;";
@@ -44,7 +44,7 @@ public class DBMS {
 	private String login = "select login from cliente where login = ? and passwd = ?;";
 
 	//insert per l'inserimento delle offerte nel database per un determinato immobile
-    	private String insertOfferte = "INSERT INTO Offerta(Id, PrezzoOfferto, IdTentativoVendita, NomePA, CognomePA, GiornoContattoPA, TelefonoPA) VALUES ('23', ?, ?, ?, ?, '2017-03-10', ?);";
+    	private String insertOfferte = "INSERT INTO Offerta(Id, PrezzoOfferto, IdTentativoVendita, NomePA, CognomePA, GiornoContattoPA, TelefonoPA) VALUES ('24', ?, ?, ?, ?, '2017-03-10', ?);";
     
 	/*private String insertTentativo ="INSERT INTO TentativoVendita (Id, PrezzoMinimo, PeriodoPrezzo, DataEffettiva, Notaio, PrezzoFinale, DataConcordata, CodCliente, CodiceAgente) VALUES ('616', '180000', '2018-10-08', '2018-10-08', 'Borsini', '140000', '2014-12-17', 'ptrmsn93e05l781t', 'id001');";*/
 	
@@ -84,7 +84,8 @@ public class DBMS {
 		bean.setSupTotImm(rs.getFloat("superficietotale"));
 		bean.setNumVani(rs.getInt("numerovani"));
 		bean.setDesc(rs.getString("descrizione"));
-        bean.setPrezzoMinimo(rs.getFloat("prezzominimo"));
+        	bean.setPrezzoMinimo(rs.getFloat("prezzominimo"));
+		bean.setIdTent(rs.getInt("id"));
 		return bean;
     	}
 	

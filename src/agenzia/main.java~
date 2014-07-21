@@ -81,17 +81,8 @@ public class main extends HttpServlet {
 				rd = request.getRequestDispatcher("./offertePage.jsp");	
 			}
 		   
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-              try {
                 //Passo il controllo alla JSP
                 rd.forward(request,response);
-                    } catch(NullPointerException e) {
-
-            //se il login e' errato invio una segnalazione d'errore
-          
-            rd.forward(request,response);
-		    
-		}
 
 		} catch(Exception e) {  //Gestisco eventuali eccezioni visualizzando lo stack delle chiamate
 			e.printStackTrace();
@@ -127,7 +118,7 @@ public class main extends HttpServlet {
         if (ps.equals("login")) { 
                 
                 String codiceImm = "";
-				String username = "";	
+		String username = "";	
                 String password = "";
                 String esito = "";
                 
@@ -172,8 +163,8 @@ public class main extends HttpServlet {
 						rd = request.getRequestDispatcher("./OffertePage.jsp");		
 					} 
 				}*/
-               // else
-                  //  rd = request.getRequestDispatcher("./error.jsp");
+                //else
+                    //rd = request.getRequestDispatcher("./error.jsp");
 				// LANCIARE UNA PAGINA D'ERRORE
             
 		} else if (ps.equals("inserimento")) {
@@ -202,7 +193,7 @@ public class main extends HttpServlet {
     				telefono = request.getParameter("Telefono");
 
                 // Recupero l'offerta
-				if (request.getParameter("Cifra offerta") != null) 
+				if (request.getParameter("CifraOfferta") != null) 
     					offerta = Integer.parseInt(request.getParameter("CifraOfferta"));
 				
 				// Controllo che sia il cliente giusto
@@ -216,7 +207,7 @@ public class main extends HttpServlet {
 				
 				float prezzoMinimo = dbms.getPrezzoMinimo(idTent);*/
 
-                
+                		System.out.println("\n" + offerta + "\n");
 				dbms.insertOfferta( nome, cognome, idTent, offerta, telefono);
 				
                 
@@ -239,9 +230,9 @@ public class main extends HttpServlet {
 			e.printStackTrace();
 		} // fine catch
         
-        //if (!ps.equals("inserimento") && !ps.equals("offerte") && !ps.equals("") )
-          //rd = request.getRequestDispatcher("./error.jsp");
-
+        /*if (!ps.equals("inserimento") && !ps.equals("offerte") && !ps.equals("") )
+          rd = request.getRequestDispatcher("./error.jsp");
+	*/
         try { 
 
         // Passo il controllo alla JSP
