@@ -1,3 +1,5 @@
+
+
 import java.sql.*;
 import java.util.*;
 import model.*;
@@ -7,8 +9,8 @@ import model.*;
  */
 public class DBMS {
 	//Dati di identificazione dell'utente (da personalizzare)
-    private String user = "postgresql";
-    private String passwd = "orteip&69";
+    private String user = "userlab06";
+    private String passwd = "seiHh";
 	
     /** URL per la connessione alla base di dati e' formato dai seguenti componenti:
      * <protocollo>://<host del server>/<nome base di dati>.
@@ -26,24 +28,23 @@ public class DBMS {
 
     //query usata nella pagina TentativoVendita.jsp che riporna per la tipologia di immobili data in input le informazioni 
     //di tutti gli immobili in vendita che si trovano nel database
-    private String tentVendita = "select immobile.codiceIm, immobile.indirizzo, immobile.citta, immobile.superficietotale from immobile, tentativovendita, invendita where tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceIm and immobile.tipo = ? and tentativovendita.codiceeffettivoacquirente not like 'null';";
+    	private String tentVendita = "select immobile.codiceIm, immobile.indirizzo, immobile.citta, immobile.superficietotale from immobile, tentativovendita, invendita where tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceIm and immobile.tipo = ? and tentativovendita.codiceeffettivoacquirente not like 'null';";
 
     //query usata per ottenere offerte per un determinato immobile
-   	private String infoImm = "select codiceIm, indirizzo, citta, superficietotale, numerovani, descrizione from immobile where codiceIm = ?;";
+   	private String infoImm = "select i.codiceIm, i.indirizzo, i.citta, i.superficietotale, i.numerovani, i.descrizione, t.prezzominimo from immobile i, tentativovendita t, invendita iv where iv.codimmobile=i.codiceIm and t.id=iv.idtentativovendita and codiceIm = ?;";
 
     //query usata per ottenere il numero di offerte attive nel database al momento
   	private String numOff = "select count(offerta.id) as numOffTipo from offerta, tentativovendita, invendita, immobile where offerta.idtentativovendita = tentativovendita.id and tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceim and immobile.codiceim = ?;";
 
-
-	private String infoOfferte = " select offerta.giornocontattoPA, offerta.nomePA, offerta.cognomePA, offerta.telefonoPA, offerta.prezzoofferto from offerta, tentativovendita, cliente, immobile, invendita where offerta.idtentativovendita = tentativovendita.id and tentativovendita.codcliente = cliente.codfis and tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceim and cliente.login = ? and immobile.codiceIm = ?;";
-
-
+	//query per ottenere le offerte per un determinato immobile
+	private String infoOfferte = "select offerta.giornocontattoPA, offerta.nomePA, offerta.cognomePA, offerta.telefonoPA, offerta.prezzoofferto from offerta, tentativovendita, cliente, immobile, invendita where offerta.idtentativovendita = tentativovendita.id and tentativovendita.codcliente = cliente.codfis and tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceim and cliente.login = ? and immobile.codiceIm = ?;";
 
 
-	private String login = " select login from cliente where login = ? and passwd = ?;";
+	//query per verificare il login
+	private String login = "select login from cliente where login = ? and passwd = ?;";
 
-
-    private String insertOfferte = "INSERT INTO Offerta(Id, PrezzoOfferto, IdTentativoVendita, NomePA, CognomePA, GiornoContattoPA, TelefonoPA) VALUES ('23', ?, ?, ?, ?, '2017-05-10', ?);";
+	//insert per l'inserimento delle offerte nel database per un determinato immobile
+    	private String insertOfferte = "INSERT INTO Offerta(Id, PrezzoOfferto, IdTentativoVendita, NomePA, CognomePA, GiornoContattoPA, TelefonoPA) VALUES ('23', ?, ?, ?, ?, '2017-03-10', ?);";
     
 	/*private String insertTentativo ="INSERT INTO TentativoVendita (Id, PrezzoMinimo, PeriodoPrezzo, DataEffettiva, Notaio, PrezzoFinale, DataConcordata, CodCliente, CodiceAgente) VALUES ('616', '180000', '2018-10-08', '2018-10-08', 'Borsini', '140000', '2014-12-17', 'ptrmsn93e05l781t', 'id001');";*/
 	
@@ -83,6 +84,7 @@ public class DBMS {
 		bean.setSupTotImm(rs.getFloat("superficietotale"));
 		bean.setNumVani(rs.getInt("numerovani"));
 		bean.setDesc(rs.getString("descrizione"));
+        bean.setPrezzoMinimo(rs.getFloat("prezzominimo"));
 		return bean;
     	}
 	
@@ -94,7 +96,7 @@ public class DBMS {
 
 	private agenziaImmoBean makeInfoOfferteBean(ResultSet rs) throws SQLException {
 		agenziaImmoBean bean = new agenziaImmoBean();
-		bean.setGiornoContatto(rs.getString("giornoContatto"));
+		bean.setGiornoContattoPA(rs.getString("giornocontattoPA"));
 		bean.setNomePA(rs.getString("nomePA"));
 		bean.setCognomePA(rs.getString("cognomePA"));
 		bean.setTelefonoPA(rs.getString("telefonoPA"));
@@ -201,7 +203,7 @@ public class DBMS {
 			rs=pstmt.executeQuery(); 		
 			
 			// Memorizzo il risultato dell'interrogazione nel Bean
-			rs.next();
+			if(rs.next());
 			result.add(makeLoginBean(rs));
 		
 		} catch(SQLException sqle) {                /* Catturo le eventuali eccezioni! */
@@ -338,9 +340,9 @@ public class DBMS {
 			pstmt.clearParameters();
 			pstmt.setInt(1, offerta);
 			pstmt.setInt(2, idTent);
-            pstmt.setString(3, nome);
-            pstmt.setString(4, cognome);
-            pstmt.setString(5, telefono);
+			    pstmt.setString(3, nome);
+			    pstmt.setString(4, cognome);
+			    pstmt.setString(5, telefono);
 			rs=pstmt.executeQuery(); 		
 			
 		
@@ -353,6 +355,8 @@ public class DBMS {
 				sqle1.printStackTrace();
 			}
 		}
+
+     
 	}
 
     
