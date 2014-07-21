@@ -118,6 +118,16 @@ iframe{
 	top: 60px;
  	right: 47%;
 }
+#puntina2 {
+	position: absolute;
+	top:70px;
+	right:30%;
+}
+#puntina3 {
+	position: absolute;
+	top:450px;
+	left:10%;
+}
 
 /*colonne*/
 

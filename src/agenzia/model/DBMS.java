@@ -16,7 +16,7 @@ public class DBMS {
      * <protocollo>://<host del server>/<nome base di dati>.
      */
    // private String url = "jdbc:postgresql://dbserver.sci.univr.it/did2014";
-    private String url = "jdbc:postgresql://localhost/dblab06";
+    private String url = "jdbc:postgresql://157.27.10.31/dblab06";
     
 	/** Driver da utilizzare per la connessione e l'esecuzione delle query. */
     private String driver = "org.postgresql.Driver";

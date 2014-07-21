@@ -163,8 +163,8 @@ public class main extends HttpServlet {
 						rd = request.getRequestDispatcher("./OffertePage.jsp");		
 					} 
 				}*/
-                else
-                    rd = request.getRequestDispatcher("./error.jsp");
+                //else
+                  //  rd = request.getRequestDispatcher("./error.jsp");
 				// LANCIARE UNA PAGINA D'ERRORE
             
 		} else if (ps.equals("inserimento")) {
@@ -230,8 +230,8 @@ public class main extends HttpServlet {
 			e.printStackTrace();
 		} // fine catch
         
-        if (!ps.equals("inserimento") && !ps.equals("offerte") && !ps.equals("") )
-          rd = request.getRequestDispatcher("./error.jsp");
+        //if (!ps.equals("inserimento") && !ps.equals("offerte") && !ps.equals("") )
+          //rd = request.getRequestDispatcher("./error.jsp");
 
         try { 
 

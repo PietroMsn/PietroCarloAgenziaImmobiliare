@@ -163,8 +163,8 @@ public class main extends HttpServlet {
 						rd = request.getRequestDispatcher("./OffertePage.jsp");		
 					} 
 				}*/
-                else
-                    rd = request.getRequestDispatcher("./error.jsp");
+                //else
+                  //  rd = request.getRequestDispatcher("./error.jsp");
 				// LANCIARE UNA PAGINA D'ERRORE
             
 		} else if (ps.equals("inserimento")) {
@@ -202,21 +202,21 @@ public class main extends HttpServlet {
 				// Se l'acquirente potenziale non è memorizzato nel sistema
 				// lo inserisco e ottengo il suo nuovo identificativo.
 		
-				if (found.equals("")) 
+				/*if (found.equals("")) 
 					found = dbms.insertNuovoAcquirentePotenziale(nome, cognome, telefono);
 				
-				float prezzoMinimo = dbms.getPrezzoMinimo(idTent);
+				float prezzoMinimo = dbms.getPrezzoMinimo(idTent);*/
 
                 
-					dbms.insertOfferta( nome, cognome, idTent, offerta, telefono);
+				dbms.insertOfferta( nome, cognome, idTent, offerta, telefono);
 				
                 
 
                // Parametro ps assente o vuoto, visualizzo la home page del sito.
 				 
-			    request.setAttribute("numVillette1", dbms.getNumImmTipo("villetta a schiera"));
-                request.setAttribute("numVille1", dbms.getNumImmTipo("villa singola"));
-                request.setAttribute("numAppartamenti1", dbms.getNumImmTipo("appartamento in palazzina"));
+			    	request.setAttribute("numVillette1", dbms.getNumImmTipo("villetta a schiera"));
+				request.setAttribute("numVille1", dbms.getNumImmTipo("villa singola"));
+				request.setAttribute("numAppartamenti1", dbms.getNumImmTipo("appartamento in palazzina"));
 				
 				rd = request.getRequestDispatcher("./index.jsp");
 

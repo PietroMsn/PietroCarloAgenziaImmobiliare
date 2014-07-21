@@ -42,7 +42,9 @@
 			<div class="titolo"><h2>Presentazione dell'azienda</h2></div>
 
 			<div id="puntina1"> <img src= "images/tack.png" width="100" height="100" ></div>
-	
+			<div id="puntina2"> <img src= "images/tack.png" width="100" height="100" ></div>				
+			<div id="puntina3"> <img src= "images/tack.png" width="100" height="100" ></div>
+
 		<div id="two-columns">
 			<div id="col1">
 			   <h4> Il rapporto personale con i nostri clienti ci distingue. <br> Abbiamo a cuore le loro necessit&agrave e cerchiamo con insistenza di trovare la soluzione che risponda ai loro desideri in ogni dettaglio in tutti i casi. <br> I nostri clienti che desiderano una consulenza possono sempre contare sulla nostra disponibilit&agrave, professionalit&agrave, cordialit&agrave e riservatezza che consentono alla nostra agenzia di soddisfare il cliente in ogni fase della trattativa. <br>L'agenzia Immobiliare &egrave presente nella realta' del mercato immobiliare con immobili residenziali e commerciali nella provincia del Verbano, vero core business della societ&agrave oltre che in alcune localit&agrave turistiche pi&ugrave esclusive.<br> 

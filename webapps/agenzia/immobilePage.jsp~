@@ -111,7 +111,7 @@
 
                 <input type = "hidden" name = "idTent" value = "100" >
                 <input type = "hidden" name = "ps" value = "inserimento" >
-                <input type = "hidden" name = "codiceImm" value = <%= bean.getCodiceImm() %> >    
+                <input type = "hidden" name = "codiceImm" value = "<%= bean.getCodiceImm() %>" >    
                    
 		        <input type="text" name="Nome" value="Inserisci nome">
                    

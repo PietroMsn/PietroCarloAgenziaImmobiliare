@@ -18,7 +18,9 @@
 <body>
 	
    	<div id="puntina1"> <img src= "images/tack.png" width="100" height="100"></div>
-	
+	<div id="puntina2"> <img src= "images/tack.png" width="100" height="100"></div>
+	<div id="puntina3"> <img src= "images/tack.png" width="100" height="100"></div>
+
 	<div class="header">
 	
 		<div id="menu"> 
