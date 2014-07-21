@@ -1478,3 +1478,13 @@ lug 21, 2014 10:24:10 PM org.apache.catalina.loader.WebappClassLoader clearRefer
 Grave: The web application [/agenzia] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
 lug 21, 2014 10:24:10 PM org.apache.catalina.core.StandardContext reload
 Informazioni: Reloading Context with name [/agenzia] is completed
+lug 21, 2014 10:32:01 PM org.apache.catalina.core.StandardContext reload
+Informazioni: Reloading Context with name [/agenzia] has started
+lug 21, 2014 10:32:01 PM org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+Grave: The web application [/agenzia] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+lug 21, 2014 10:32:01 PM org.apache.catalina.core.StandardContext reload
+Informazioni: Reloading Context with name [/agenzia] is completed
+lug 21, 2014 10:32:21 PM org.apache.catalina.core.StandardContext reload
+Informazioni: Reloading Context with name [/agenzia] has started
+lug 21, 2014 10:32:21 PM org.apache.catalina.core.StandardContext reload
+Informazioni: Reloading Context with name [/agenzia] is completed

@@ -181,7 +181,7 @@ public class main extends HttpServlet {
 				String cognome = "";
 				String telefono = "";
 				
-				int offerta = 0;
+				float offerta = 0;
 
 				// Recupero idTent
 				if (request.getParameter("idTent") != null) 

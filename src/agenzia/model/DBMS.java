@@ -327,7 +327,7 @@ public class DBMS {
 					//dbms.insertOfferta( nome, cognome, idTent, offerta, telefono);
 				
 
-    public void insertOfferta(String nome,String cognome, int idTent, int offerta, String telefono) {
+    public void insertOfferta(String nome,String cognome, int idTent, float offerta, String telefono) {
 		// Dichiarazione delle variabili
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -341,7 +341,7 @@ public class DBMS {
 			pstmt = con.prepareStatement(insertOfferte); 
 			pstmt.clearParameters();
 			pstmt.setInt(1, setIdOfferta());
-			pstmt.setInt(2, offerta);
+			pstmt.setFloat(2, offerta);
 			pstmt.setInt(3, idTent);
 			pstmt.setString(4, nome);
 			pstmt.setString(5, cognome);

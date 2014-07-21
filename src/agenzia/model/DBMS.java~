@@ -327,7 +327,7 @@ public class DBMS {
 					//dbms.insertOfferta( nome, cognome, idTent, offerta, telefono);
 				
 
-    public void insertOfferta(String nome,String cognome, int idTent, int offerta, String telefono) {
+    public void insertOfferta(String nome,String cognome, int idTent, float offerta, String telefono) {
 		// Dichiarazione delle variabili
 		Connection con = null;
 		PreparedStatement pstmt = null;
