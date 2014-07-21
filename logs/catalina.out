@@ -3998,3 +3998,399 @@ lug 21, 2014 4:08:11 PM org.apache.catalina.core.StandardContext reload
 Informazioni: Reloading Context with name [/agenzia] has started
 lug 21, 2014 4:08:11 PM org.apache.catalina.core.StandardContext reload
 Informazioni: Reloading Context with name [/agenzia] is completed
+usage: java org.apache.catalina.startup.Catalina [ -config {pathname} ] [ -nonaming ]  { -help | start | stop }
+lug 21, 2014 9:17:19 PM org.apache.catalina.startup.Catalina initDirs
+Grave: Cannot find specified temporary folder at /home/pietro/tomcat/temp
+lug 21, 2014 9:17:20 PM org.apache.catalina.core.AprLifecycleListener init
+Informazioni: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+lug 21, 2014 9:17:20 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+Avvertenza: [SetPropertiesRule]{Server/Service/Engine/Host} Setting property 'xmlValidation' to 'false' did not find a matching property.
+lug 21, 2014 9:17:20 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+Avvertenza: [SetPropertiesRule]{Server/Service/Engine/Host} Setting property 'xmlNamespaceAware' to 'false' did not find a matching property.
+lug 21, 2014 9:17:21 PM org.apache.coyote.AbstractProtocol init
+Informazioni: Initializing ProtocolHandler ["http-bio-8080"]
+lug 21, 2014 9:17:21 PM org.apache.coyote.AbstractProtocol init
+Informazioni: Initializing ProtocolHandler ["ajp-bio-8009"]
+lug 21, 2014 9:17:21 PM org.apache.catalina.startup.Catalina load
+Informazioni: Initialization processed in 1691 ms
+lug 21, 2014 9:17:21 PM org.apache.catalina.core.StandardService startInternal
+Informazioni: Starting service Catalina
+lug 21, 2014 9:17:21 PM org.apache.catalina.core.StandardEngine startInternal
+Informazioni: Starting Servlet Engine: Apache Tomcat/7.0.26
+lug 21, 2014 9:17:21 PM org.apache.catalina.startup.HostConfig deployDirectory
+Informazioni: Deploying web application directory /home/pietro/tomcat/webapps/esercizi
+lug 21, 2014 9:17:21 PM org.apache.catalina.startup.SetContextPropertiesRule begin
+Avvertenza: [SetContextPropertiesRule]{Context} Setting property 'isInvokerEnabled' to 'true' did not find a matching property.
+lug 21, 2014 9:17:21 PM org.apache.catalina.startup.HostConfig deployDirectory
+Informazioni: Deploying web application directory /home/pietro/tomcat/webapps/agenzia
+lug 21, 2014 9:17:21 PM org.apache.catalina.startup.SetContextPropertiesRule begin
+Avvertenza: [SetContextPropertiesRule]{Context} Setting property 'isInvokerEnabled' to 'true' did not find a matching property.
+lug 21, 2014 9:17:22 PM org.apache.catalina.startup.HostConfig deployDirectory
+Informazioni: Deploying web application directory /home/pietro/tomcat/webapps/ROOT
+lug 21, 2014 9:17:22 PM org.apache.catalina.startup.SetContextPropertiesRule begin
+Avvertenza: [SetContextPropertiesRule]{Context} Setting property 'isInvokerEnabled' to 'true' did not find a matching property.
+lug 21, 2014 9:17:22 PM org.apache.coyote.AbstractProtocol start
+Informazioni: Starting ProtocolHandler ["http-bio-8080"]
+lug 21, 2014 9:17:22 PM org.apache.coyote.AbstractProtocol start
+Informazioni: Starting ProtocolHandler ["ajp-bio-8009"]
+lug 21, 2014 9:17:22 PM org.apache.catalina.startup.Catalina start
+Informazioni: Server startup in 1218 ms
+
+23243435
+
+org.postgresql.util.PSQLException: ERROR: insert or update on table "offerta" violates foreign key constraint "offerta_nomepa_fkey"
+  Dettaglio: Key (nomepa, cognomepa, giornocontattopa, telefonopa)=(Tommaso, Todeschini, 2017-03-10, 045/232244) is not present in table "potenzialeacquirente".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:419)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:304)
+	at DBMS.insertOfferta(DBMS.java:347)
+	at main.doPost(main.java:218)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:307)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+java.lang.NumberFormatException: For input string: "3435426456"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:495)
+	at java.lang.Integer.parseInt(Integer.java:527)
+	at main.doPost(main.java:204)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:307)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+
+3435426
+
+org.postgresql.util.PSQLException: ERROR: insert or update on table "offerta" violates foreign key constraint "offerta_nomepa_fkey"
+  Dettaglio: Key (nomepa, cognomepa, giornocontattopa, telefonopa)=(Tommaso, Todeschin, 2017-03-10, 045/2399044) is not present in table "potenzialeacquirente".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:419)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:304)
+	at DBMS.insertOfferta(DBMS.java:347)
+	at main.doPost(main.java:218)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:307)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+
+343552235
+
+org.postgresql.util.PSQLException: Nessun risultato è stato restituito dalla query.
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:305)
+	at DBMS.insertOfferta(DBMS.java:347)
+	at main.doPost(main.java:218)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:307)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+lug 21, 2014 9:30:52 PM org.apache.catalina.core.StandardContext reload
+Informazioni: Reloading Context with name [/agenzia] has started
+lug 21, 2014 9:30:52 PM org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+Grave: The web application [/agenzia] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+lug 21, 2014 9:30:53 PM org.apache.catalina.core.StandardContext reload
+Informazioni: Reloading Context with name [/agenzia] is completed
+
+343534624
+
+org.postgresql.util.PSQLException: ERROR: insert or update on table "offerta" violates foreign key constraint "offerta_nomepa_fkey"
+  Dettaglio: Key (nomepa, cognomepa, giornocontattopa, telefonopa)=(Tommaso, Todeschini, 2014-07-21, 045/2399044) is not present in table "potenzialeacquirente".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:419)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:304)
+	at DBMS.insertOfferta(DBMS.java:347)
+	at main.doPost(main.java:218)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:309)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+
+43523652
+
+org.postgresql.util.PSQLException: ERROR: insert or update on table "offerta" violates foreign key constraint "offerta_nomepa_fkey"
+  Dettaglio: Key (nomepa, cognomepa, giornocontattopa, telefonopa)=(Tommaso, Todeschini, 2014-07-21, 045/2399044) is not present in table "potenzialeacquirente".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:419)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:304)
+	at DBMS.insertOfferta(DBMS.java:347)
+	at main.doPost(main.java:218)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:309)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+java.lang.NumberFormatException: For input string: "3453354646"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:495)
+	at java.lang.Integer.parseInt(Integer.java:527)
+	at main.doPost(main.java:204)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:309)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+lug 21, 2014 10:05:41 PM org.apache.catalina.core.StandardServer await
+Informazioni: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+lug 21, 2014 10:05:41 PM org.apache.coyote.AbstractProtocol pause
+Informazioni: Pausing ProtocolHandler ["http-bio-8080"]
+lug 21, 2014 10:05:41 PM org.apache.coyote.AbstractProtocol pause
+Informazioni: Pausing ProtocolHandler ["ajp-bio-8009"]
+usage: java org.apache.catalina.startup.Catalina [ -config {pathname} ] [ -nonaming ]  { -help | start | stop }
+lug 21, 2014 10:05:46 PM org.apache.catalina.startup.Catalina initDirs
+Grave: Cannot find specified temporary folder at /home/pietro/tomcat/temp
+lug 21, 2014 10:05:47 PM org.apache.catalina.core.AprLifecycleListener init
+Informazioni: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+lug 21, 2014 10:05:47 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+Avvertenza: [SetPropertiesRule]{Server/Service/Engine/Host} Setting property 'xmlValidation' to 'false' did not find a matching property.
+lug 21, 2014 10:05:47 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+Avvertenza: [SetPropertiesRule]{Server/Service/Engine/Host} Setting property 'xmlNamespaceAware' to 'false' did not find a matching property.
+lug 21, 2014 10:05:47 PM org.apache.coyote.AbstractProtocol init
+Informazioni: Initializing ProtocolHandler ["http-bio-8080"]
+lug 21, 2014 10:05:47 PM org.apache.coyote.AbstractProtocol init
+Informazioni: Initializing ProtocolHandler ["ajp-bio-8009"]
+lug 21, 2014 10:05:47 PM org.apache.catalina.startup.Catalina load
+Informazioni: Initialization processed in 1800 ms
+lug 21, 2014 10:05:47 PM org.apache.catalina.core.StandardService startInternal
+Informazioni: Starting service Catalina
+lug 21, 2014 10:05:47 PM org.apache.catalina.core.StandardEngine startInternal
+Informazioni: Starting Servlet Engine: Apache Tomcat/7.0.26
+lug 21, 2014 10:05:47 PM org.apache.catalina.startup.HostConfig deployDirectory
+Informazioni: Deploying web application directory /home/pietro/tomcat/webapps/esercizi
+lug 21, 2014 10:05:48 PM org.apache.catalina.startup.SetContextPropertiesRule begin
+Avvertenza: [SetContextPropertiesRule]{Context} Setting property 'isInvokerEnabled' to 'true' did not find a matching property.
+lug 21, 2014 10:05:48 PM org.apache.catalina.util.SessionIdGenerator createSecureRandom
+Informazioni: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [212] milliseconds.
+lug 21, 2014 10:05:48 PM org.apache.catalina.startup.HostConfig deployDirectory
+Informazioni: Deploying web application directory /home/pietro/tomcat/webapps/agenzia
+lug 21, 2014 10:05:48 PM org.apache.catalina.startup.SetContextPropertiesRule begin
+Avvertenza: [SetContextPropertiesRule]{Context} Setting property 'isInvokerEnabled' to 'true' did not find a matching property.
+lug 21, 2014 10:05:49 PM org.apache.catalina.startup.HostConfig deployDirectory
+Informazioni: Deploying web application directory /home/pietro/tomcat/webapps/ROOT
+lug 21, 2014 10:05:49 PM org.apache.catalina.startup.SetContextPropertiesRule begin
+Avvertenza: [SetContextPropertiesRule]{Context} Setting property 'isInvokerEnabled' to 'true' did not find a matching property.
+lug 21, 2014 10:05:49 PM org.apache.coyote.AbstractProtocol start
+Informazioni: Starting ProtocolHandler ["http-bio-8080"]
+lug 21, 2014 10:05:49 PM org.apache.coyote.AbstractProtocol start
+Informazioni: Starting ProtocolHandler ["ajp-bio-8009"]
+lug 21, 2014 10:05:49 PM org.apache.catalina.startup.Catalina start
+Informazioni: Server startup in 1696 ms
+lug 21, 2014 10:05:59 PM org.apache.catalina.core.StandardContext reload
+Informazioni: Reloading Context with name [/agenzia] has started
+lug 21, 2014 10:05:59 PM org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+Grave: The web application [/agenzia] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+lug 21, 2014 10:05:59 PM org.apache.catalina.core.StandardContext reload
+Informazioni: Reloading Context with name [/agenzia] is completed
+
+345346536
+
+org.postgresql.util.PSQLException: Nessun risultato è stato restituito dalla query.
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:305)
+	at DBMS.insertOfferta(DBMS.java:347)
+	at main.doPost(main.java:218)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:309)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+lug 21, 2014 10:17:29 PM org.apache.catalina.core.StandardContext reload
+Informazioni: Reloading Context with name [/agenzia] has started
+lug 21, 2014 10:17:30 PM org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+Grave: The web application [/agenzia] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+lug 21, 2014 10:17:30 PM org.apache.catalina.core.StandardContext reload
+Informazioni: Reloading Context with name [/agenzia] is completed
+
+343546346
+
+org.postgresql.util.PSQLException: Nessun risultato è stato restituito dalla query.
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:305)
+	at DBMS.insertOfferta(DBMS.java:349)
+	at main.doPost(main.java:218)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:309)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+
+243546346
+
+org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "offerta_id_key"
+  Dettaglio: Key (id)=(104) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2198)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1927)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:561)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:419)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:304)
+	at DBMS.insertOfferta(DBMS.java:349)
+	at main.doPost(main.java:218)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:307)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+lug 21, 2014 10:24:10 PM org.apache.catalina.core.StandardContext reload
+Informazioni: Reloading Context with name [/agenzia] has started
+lug 21, 2014 10:24:10 PM org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+Grave: The web application [/agenzia] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+lug 21, 2014 10:24:10 PM org.apache.catalina.core.StandardContext reload
+Informazioni: Reloading Context with name [/agenzia] is completed
+
+3454636
+
+org.postgresql.util.PSQLException: Nessun risultato è stato restituito dalla query.
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:305)
+	at DBMS.insertOfferta(DBMS.java:349)
+	at main.doPost(main.java:218)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:309)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)

@@ -105,8 +105,8 @@
 		GiornoContattoPA DATE NOT NULL,
 		TelefonoPA VARCHAR(40) NOT NULL,
 
-		FOREIGN KEY(NomePA, CognomePA, TelefonoPA) 
-              		REFERENCES PotenzialeAcquirente(Nome, Cognome, Telefono)
+		FOREIGN KEY(NomePA, CognomePA, GiornoContattoPA, TelefonoPA) 
+              		REFERENCES PotenzialeAcquirente(Nome, Cognome, GiornoContatto, Telefono)
                   	ON DELETE SET DEFAULT
                  	ON UPDATE CASCADE,
 

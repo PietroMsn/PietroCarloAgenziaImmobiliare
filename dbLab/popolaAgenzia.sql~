@@ -276,38 +276,38 @@
 		
 	--Collegata a Offerta tramite Nome, Cognome, GiornoContatto, Telefono
 
-	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, Telefono)
-	    VALUES ( 'Riccardo', 'Ricci', '045/232244');
+	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, GiornoContatto, Telefono)
+	    VALUES ( 'Riccardo', 'Ricci', '2017-03-10', '045/232244');
 
-	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, Telefono)
-	    VALUES ( 'Oscar', 'Olivieri', '045/2399044');
+	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, GiornoContatto, Telefono)
+	    VALUES ( 'Oscar', 'Olivieri', '2017-03-10', '045/2399044');
 
-	    INSERT INTO PotenzialeAcquirente(Nome, Cognome,  Telefono)
-            VALUES ('Rodolfo', 'Rossi', '045/2242664');	
+	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, GiornoContatto, Telefono)
+            VALUES ('Rodolfo', 'Rossi', '2017-05-10',  '045/2242664');	
 
-	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, Telefono)
-	    VALUES ( 'Tommaso', 'Todeschini', '045/2399044');
+	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, GiornoContatto, Telefono)
+	    VALUES ( 'Tommaso', 'Todeschini', '2017-03-10', '045/2399044');
 
-	    INSERT INTO PotenzialeAcquirente(Nome, Cognome,  Telefono)
-            VALUES ('Andrea', 'Borghesani',   '045/2242664');	
+	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, GiornoContatto, Telefono)
+            VALUES ('Andrea', 'Borghesani', '2017-02-03',  '045/2242664');	
 
-	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, Telefono)
-	    VALUES ( 'Matteo', 'Sterza',  '045/2399044');
+	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, GiornoContatto, Telefono)
+	    VALUES ( 'Matteo', 'Sterza', '2017-04-12', '045/2399044');
 
-	    INSERT INTO PotenzialeAcquirente(Nome, Cognome,  Telefono)
-            VALUES ('Alessio', 'Guarnieri',  '045/2242664');	
+	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, GiornoContatto, Telefono)
+            VALUES ('Alessio', 'Guarnieri', '2017-01-07',  '045/2242664');	
 
-	    INSERT INTO PotenzialeAcquirente(Nome, Cognome,  Telefono)
-	    VALUES ( 'Giacomo', 'Vilio', '045/2399044');
+	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, GiornoContatto, Telefono)
+	    VALUES ( 'Giacomo', 'Vilio', '2017-03-10', '045/2399044');
 
-	    INSERT INTO PotenzialeAcquirente(Nome, Cognome,  Telefono)
-            VALUES ('Maria', 'Bianchi', '045/2242664');	
+	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, GiornoContatto, Telefono)
+            VALUES ('Maria', 'Bianchi', '2017-05-10',  '045/2242664');	
 
-	    INSERT INTO PotenzialeAcquirente(Nome, Cognome,  Telefono)
-	    VALUES ( 'Sofia', 'Rupiani', '045/2399044');
+	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, GiornoContatto, Telefono)
+	    VALUES ( 'Sofia', 'Rupiani', '2017-03-10', '045/2399044');
 
-	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, Telefono)
-            VALUES ('Serena', 'Sterza', '045/2242664');	
+	    INSERT INTO PotenzialeAcquirente(Nome, Cognome, GiornoContatto, Telefono)
+            VALUES ('Serena', 'Sterza', '2017-05-10',  '045/2242664');	
 
 	-- Offerta
 	--	Id INTEGER UNIQUE

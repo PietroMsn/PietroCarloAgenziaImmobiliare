@@ -11,6 +11,7 @@ public class DBMS {
 	//Dati di identificazione dell'utente (da personalizzare)
     private String user = "userlab06";
     private String passwd = "seiHh";
+    
 	
     /** URL per la connessione alla base di dati e' formato dai seguenti componenti:
      * <protocollo>://<host del server>/<nome base di dati>.
@@ -44,7 +45,7 @@ public class DBMS {
 	private String login = "select login from cliente where login = ? and passwd = ?;";
 
 	//insert per l'inserimento delle offerte nel database per un determinato immobile
-    	private String insertOfferte = "INSERT INTO Offerta(Id, PrezzoOfferto, IdTentativoVendita, NomePA, CognomePA, GiornoContattoPA, TelefonoPA) VALUES ('24', ?, ?, ?, ?, '2017-03-10', ?);";
+    	private String insertOfferte = "INSERT INTO Offerta(Id, PrezzoOfferto, IdTentativoVendita, NomePA, CognomePA, GiornoContattoPA, TelefonoPA) VALUES (?, ?, ?, ?, ?, CURRENT_DATE, ?);";
     
 	/*private String insertTentativo ="INSERT INTO TentativoVendita (Id, PrezzoMinimo, PeriodoPrezzo, DataEffettiva, Notaio, PrezzoFinale, DataConcordata, CodCliente, CodiceAgente) VALUES ('616', '180000', '2018-10-08', '2018-10-08', 'Borsini', '140000', '2014-12-17', 'ptrmsn93e05l781t', 'id001');";*/
 	
@@ -339,11 +340,12 @@ public class DBMS {
 			// dell'interrogazione.
 			pstmt = con.prepareStatement(insertOfferte); 
 			pstmt.clearParameters();
-			pstmt.setInt(1, offerta);
-			pstmt.setInt(2, idTent);
-			    pstmt.setString(3, nome);
-			    pstmt.setString(4, cognome);
-			    pstmt.setString(5, telefono);
+			pstmt.setInt(1, setIdOfferta());
+			pstmt.setInt(2, offerta);
+			pstmt.setInt(3, idTent);
+			pstmt.setString(4, nome);
+			pstmt.setString(5, cognome);
+			pstmt.setString(6, telefono);
 			rs=pstmt.executeQuery(); 		
 			
 		
@@ -358,6 +360,12 @@ public class DBMS {
 		}
 
      
+	}
+
+	public int setIdOfferta() {
+		int randomNum = 0;
+		randomNum = 104 + (int)(Math.random()*200);
+		return randomNum;
 	}
 
     
