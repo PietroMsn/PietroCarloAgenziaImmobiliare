@@ -46,13 +46,11 @@
         Vector offerte = (Vector)request.getAttribute("offerteImm"); 
         
     %>
-       
+            
    <h3>	
 		<div class="titolo"><h2>Pagina relativa alle offerte sull'immobile.</h2></div>
-        
 			<ul> Elenco offerte
-                <%
-                   for (int i = 0; i < offerte.size(); i++) {
+                <% for (int i = 0; i < offerte.size(); i++) {
                     agenziaImmoBean bean = (agenziaImmoBean) offerte.get(i);
                  %>
 			       <li> Giorno offerta: <%= bean.getGiornoContattoPA()%> </li>
@@ -61,11 +59,7 @@
                    <li> Numero di telefono acquirente: <%= bean.getTelefonoPA() %> </li>
                    <li> Prezzo offerto: <%= bean.getPrezzoOfferto() %> </li>
         
-              <% }
-                if(offerte.size()==0){ %>
-                    <h2> Non ci sono offerte per l'acquisto dell'immobile
-                         oppure l'username non &egrave associato all'immobile </h2>
-                <% }  %>
+              <% } %>
 			  
 			</ul>
 		   </h3>
