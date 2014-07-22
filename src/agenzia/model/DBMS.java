@@ -29,7 +29,7 @@ public class DBMS {
 
     //query usata nella pagina TentativoVendita.jsp che riporna per la tipologia di immobili data in input le informazioni 
     //di tutti gli immobili in vendita che si trovano nel database
-    	private String tentVendita = "select immobile.codiceIm, immobile.indirizzo, immobile.citta, immobile.superficietotale from immobile, tentativovendita, invendita where tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceIm and immobile.tipo = ? and tentativovendita.codiceeffettivoacquirente not like 'null';";
+    	private String tentVendita = "select immobile.codiceIm, immobile.indirizzo, immobile.citta, immobile.superficietotale from immobile, tentativovendita, invendita where tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceIm and immobile.tipo = ? and tentativovendita.codiceeffettivoacquirente not like 'null' and tentativovendita.periodoprezzo > CURRENT_DATE;";
 
     //query usata per ottenere offerte per un determinato immobile
    	private String infoImm = "select i.codiceIm, i.indirizzo, i.citta, i.superficietotale, i.numerovani, i.descrizione, t.prezzominimo, t.id from immobile i, tentativovendita t, invendita iv where iv.codimmobile=i.codiceIm and t.id=iv.idtentativovendita and codiceIm = ?;";
@@ -42,7 +42,7 @@ public class DBMS {
 
 
 	//query per verificare il login
-	private String login = "select login from cliente where login = ? and passwd = ?;";
+	private String login = "select login from cliente, tentativovendita, immobile, invendita where cliente.codFis = tentativovendita.codCliente and tentativovendita.id = invendita.idtentativovendita and invendita.codimmobile = immobile.codiceim and login = ? and passwd = ? and immobile.codiceim = ?;";
 
 	//insert per l'inserimento delle offerte nel database per un determinato immobile
     	private String insertOfferte = "INSERT INTO Offerta(Id, PrezzoOfferto, IdTentativoVendita, NomePA, CognomePA, GiornoContattoPA, TelefonoPA) VALUES (?, ?, ?, ?, ?, CURRENT_DATE, ?);";
@@ -187,7 +187,7 @@ public class DBMS {
 
 		
 	//metodo che restituisce il nome di login se va a buon fine (se nel database, a login è associata passwd)
-	public String getAccess(String username, String password) {
+	public String getAccess(String username, String password, String codiceIm) {
 		// Dichiarazione delle variabili
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -202,6 +202,7 @@ public class DBMS {
 			pstmt.clearParameters();
 			pstmt.setString(1, username);
 			pstmt.setString(2, password); 
+			pstmt.setString(3, codiceIm);
 			rs=pstmt.executeQuery(); 		
 			
 			// Memorizzo il risultato dell'interrogazione nel Bean

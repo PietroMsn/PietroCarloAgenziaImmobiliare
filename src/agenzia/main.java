@@ -145,7 +145,7 @@ public class main extends HttpServlet {
     				password = request.getParameter("pass");
                 }
 
-                esito = dbms.getAccess(username, password);
+                esito = dbms.getAccess(username, password, codiceImm);
 
                 if(esito.equals(username)){
                        
@@ -170,7 +170,7 @@ public class main extends HttpServlet {
 						rd = request.getRequestDispatcher("./OffertePage.jsp");		
 					} 
 				}*/
-                //else
+              
                     //rd = request.getRequestDispatcher("./error.jsp");
 				// LANCIARE UNA PAGINA D'ERRORE
             
